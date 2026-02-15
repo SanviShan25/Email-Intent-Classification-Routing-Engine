@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 15 23% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 20 15% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 20 15% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 67% 55%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 50% 50%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 280 67% 55%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 280 67% 55%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glassmorphism effect */
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent;
+  }
+
+  /* Animated gradient */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply hover:scale-105 hover:shadow-xl transition-smooth;
+  }
+
+  /* Cards with shadow */
+  .card-shadow {
+    @apply shadow-2xl shadow-purple-900/50;
+  }
+
+  /* Glowing effect */
+  .glow {
+    @apply shadow-lg shadow-purple-500/50;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-purple-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-purple-500 rounded-full hover:bg-purple-400;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
