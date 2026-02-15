@@ -5,9 +5,11 @@ from haystack import Pipeline
 from haystack.nodes import BM25Retriever
 from pprint import pprint
 from json import loads, dumps
+import os
+from dotenv import load_dotenv
 
-
-HF_TOKEN = "os.getenv("HF_TOKEN", "")"
+load_dotenv()
+HF_TOKEN = os.getenv('HF_TOKEN', '')
 
 with open('rag2.json', 'r') as f:
     data = loads(f.read())

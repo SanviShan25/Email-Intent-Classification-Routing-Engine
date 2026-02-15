@@ -6,8 +6,11 @@ from haystack.nodes import BM25Retriever
 from pprint import pprint
 from json import loads, dumps
 import numpy as np
+import os
+from dotenv import load_dotenv
 
-HF_TOKEN = "os.getenv("HF_TOKEN", "")"
+load_dotenv()
+HF_TOKEN = os.getenv('HF_TOKEN', '')
 
 with open('bigrag.json', 'r') as f:
     data = loads(f.read())
